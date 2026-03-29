@@ -45,8 +45,24 @@ class ReservaServiceTest {
         }
     }
 
+    //3er Test - Validar Número de pasaporte
+    @Test
+    @DisplayName("Validar Número de pasaporte")
+    void validarNumeroPasaporte() {
 
-    
+        String r = ReservaService.validarReserva(
+                "ABC123", "Fernando", "A123", 2, LocalDate.now().plusDays(1)
+        );
+
+        try {
+            assertEquals("Ingrese un número de pasaporte válido", r);
+            System.out.println("✅ TEST PASSED: Validación correcta el numero de pasaporte debe tener entre 8 y 10 caracteres");
+        } catch (AssertionError e) {
+            System.out.println("❌ TEST FAILED: Error en validación(esta mal la validación)");
+            throw e;
+        }
+    }
+
     //Sexto Test -  Validar Reserva Correctamente
     @Test
     @DisplayName("✅ Test: Validar reserva correcta")
