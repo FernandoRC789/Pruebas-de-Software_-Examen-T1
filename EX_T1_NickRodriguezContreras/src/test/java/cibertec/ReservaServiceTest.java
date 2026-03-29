@@ -81,7 +81,25 @@ class ReservaServiceTest {
         }
     }
 
-    //Sexto Test -  Validar Reserva Correctamente
+    //5to Test - Validar fechas de vuelo
+    @Test
+    @DisplayName("Validar Fecha de Vuelo")
+    void validarFechaDeVuelo() {
+
+        String r = ReservaService.validarReserva(
+                "ABC123", "Fernando", "A123456789", 5, LocalDate.now()
+        );
+
+        try {
+            assertEquals("La fecha del vuelo debe ser posterior a la fecha actual", r);
+            System.out.println("✅ TEST PASSED: Validación correcta la fecha de vuelo debe ser posterior a la fecha actual");
+        } catch (AssertionError e) {
+            System.out.println("❌ TEST FAILED: Error en validación(esta mal la validación)");
+            throw e;
+        }
+    }
+
+    //6. Sexto Test -  Validar Reserva Correctamente
     @Test
     @DisplayName("✅ Test: Validar reserva correcta")
     void reservaCorrecta() {
