@@ -27,8 +27,26 @@ class ReservaServiceTest {
         }
     }
 
+    //2do Test - Validar Nombre de Pasajeros
+    @Test
+    @DisplayName("Validar Nombre de Pasajeros")
+    void validarNombres() {
+
+        String r = ReservaService.validarReserva(
+                "ABC123", "Nick", "A1234567", 2, LocalDate.now().plusDays(1)
+        );
+
+        try {
+            assertEquals("El nombre del pasajero debe tener al menos cinco caracteres alfabéticos", r);
+            System.out.println("✅ TEST PASSED: Validación correcta el nombre minimo 5 caracteres");
+        } catch (AssertionError e) {
+            System.out.println("❌ TEST FAILED: Error en validación.");
+            throw e;
+        }
+    }
 
 
+    
     //Sexto Test -  Validar Reserva Correctamente
     @Test
     @DisplayName("✅ Test: Validar reserva correcta")
