@@ -34,6 +34,7 @@ public class ReservaService {
 
         //Fecha mayor a la fecha actual (hoy)
         if (!fechaVuelo.isAfter(LocalDate.now())) {
+
             return "La fecha del vuelo debe ser posterior a la fecha actual";
         }
 

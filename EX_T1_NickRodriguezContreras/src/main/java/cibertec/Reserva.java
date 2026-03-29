@@ -7,7 +7,7 @@ public class Reserva {
 
         String resultado = ReservaService.validarReserva(
                 "ABC123",
-                "Nick",
+                "Fernando",
                 "A1234567",
                 2,
                 LocalDate.now().plusDays(1)
