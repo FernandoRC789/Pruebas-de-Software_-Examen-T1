@@ -63,6 +63,24 @@ class ReservaServiceTest {
         }
     }
 
+    //4to Test - Validar Asientos
+    @Test
+    @DisplayName("Validar Número de Asiento")
+    void validarNumeroAsiento() {
+
+        String r = ReservaService.validarReserva(
+                "ABC123", "Fernando", "A123456789", 0, LocalDate.now().plusDays(1)
+        );
+
+        try {
+            assertEquals("La cantidad de asientos debe ser mayor a cero", r);
+            System.out.println("✅ TEST PASSED: Validación correcta el numero de asientos debe ser mayor a 0");
+        } catch (AssertionError e) {
+            System.out.println("❌ TEST FAILED: Error en validación(esta mal la validación)");
+            throw e;
+        }
+    }
+
     //Sexto Test -  Validar Reserva Correctamente
     @Test
     @DisplayName("✅ Test: Validar reserva correcta")
